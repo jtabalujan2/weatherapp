@@ -1,0 +1,19 @@
+{
+  "name": "weatherapp",
+  "version": "1.0.0",
+  "description": "An app that displays the temperature for a given city based on the OpenWeatherMap API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "Julian T",
+  "license": "ISC",
+  "devDependencies": {
+    "ejs": "^2.6.1",
+    "nodemon": "^1.18.9"
+  },
+  "nodemonConfig": {
+    "delay": 2500
+  }
+}
