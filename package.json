@@ -9,11 +9,17 @@
   },
   "author": "Julian T",
   "license": "ISC",
-  "devDependencies": {
+
+  "dependencies": {
     "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  }, 
+
+  "devDependencies": {
     "nodemon": "^1.18.9"
   },
   "nodemonConfig": {
     "delay": 2500
   }
+
 }
