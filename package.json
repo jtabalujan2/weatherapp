@@ -9,17 +9,18 @@
   },
   "author": "Julian T",
   "license": "ISC",
-
   "dependencies": {
+    "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
-    "express": "^4.16.4"
-  }, 
-
+    "express": "^4.16.4",
+    "node-fetch": "^2.3.0",
+    "request": "^2.88.0",
+    "xmlhttprequest": "^1.8.0"
+  },
   "devDependencies": {
     "nodemon": "^1.18.9"
   },
   "nodemonConfig": {
     "delay": 2500
   }
-
 }
