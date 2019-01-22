@@ -19,6 +19,7 @@ app.get('/', function(req,res) {
     res.render('index');
 });
 
+
 app.post('/', function(req, res) {
     const city = req.body.city;
     const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${keys.openweatherapi.apikey}`
@@ -33,10 +34,6 @@ app.post('/', function(req, res) {
     .catch(error => console.log(error))
     res.render('index')
 })
-
-
-
-//
 
 
 app.listen(3000,function() {
