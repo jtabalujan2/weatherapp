@@ -16,23 +16,32 @@ app.set('view engine', 'ejs');
 
 
 app.get('/', function(req,res) {
-    res.render('index');
+    res.render('index', {Weather: null});
 });
 
 
 app.post('/', function(req, res) {
-    const city = req.body.city;
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${keys.openweatherapi.apikey}`
-    let weather;
-    
+    const format = function capitalizeFirstLetter(string) {
+        result = string.toLowerCase()
+        result = result.charAt(0).toUpperCase() + result.slice(1);
+        return result
+    }
+
+    const city = format(req.body.city)
+    const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${keys.openweatherapi.apikey}&units=imperial`
+
+
     fetch(url)
     .then(response => response.json())
     .then(data => {
-        console.log(data)
+        console.log(data.main.temp)
+        temperature = data.main.temp
+        const weather = `It is ${temperature} degrees Farenheit, in ${city}.`
+        res.render('index', {Weather: weather})
         
     })
     .catch(error => console.log(error))
-    res.render('index')
+    
 })
 
 
