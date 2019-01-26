@@ -73,5 +73,6 @@ fieldset {
 }
 
 p {
-    color: #E64A19;
+    color: #000000 ;
+    text-align: center;
 }

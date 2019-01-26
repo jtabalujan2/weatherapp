@@ -34,13 +34,26 @@ app.post('/', function(req, res) {
     fetch(url)
     .then(response => response.json())
     .then(data => {
-        console.log(data.main.temp)
-        temperature = data.main.temp
-        const weather = `It is ${temperature} degrees Farenheit, in ${city}.`
-        res.render('index', {Weather: weather})
+        if(data.main===undefined) {
+            const error = `Please enter a correct city`
+            res.render('index', {Weather: error})
+        }
+        else {
+            temperature = Math.round(data.main.temp)
+            description = data.weather[0].description
+            
+
+            const response = `It is currently ${temperature} \u{2109} in ${city}.`
+            res.render('index', {Weather: response})
+        }
+       
+        
         
     })
-    .catch(error => console.log(error))
+    .catch(error => {
+        console.log(error)
+    })
+        
     
 })
 
@@ -48,4 +61,5 @@ app.post('/', function(req, res) {
 app.listen(3000,function() {
     console.log('App running on port 3000');
 });
+
 
